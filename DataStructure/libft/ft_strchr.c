@@ -6,7 +6,7 @@
 /*   By: mhdeeb <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 12:50:42 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/08/10 12:51:08 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/08/10 19:14:25 by mhdeeb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strchr(const char *str, char c)
 	const char	*a;
 
 	a = str;
+	if (!str)
+		return (NULL);
 	while (*a)
 	{
 		if (*a == c)

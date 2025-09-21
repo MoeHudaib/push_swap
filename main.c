@@ -10,17 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./DataStructure/stack.h"
+#include "stack.h"
+#include "libft.h"
+
+static int	check(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] <= '0' || str[i] >= '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static int	loop_through(char **args, int argc)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (!check(args[i]) || ft_atoi(args[i]) == -1)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	main(int argc, char **argv)
 {
-	if (argc == 1)
+	int	i;
+	t_node	*head;
+
+	if (argc == 1 || !loop_through(argv, argc))
 	{
-		ft_printf("Invalid Usage.\n");
+		ft_printf("Invalid Usage.\n, %d", ft_atoi(argv[1]));
 		return (1);
 	}
-	t_node	*head;
-	int	i;
 	i = 1;
 	head = create_node(ft_atoi(argv[i++]));
 	print_list(head);
