@@ -6,13 +6,13 @@
 /*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 12:49:59 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/10/02 13:51:58 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/02 15:20:41 by mhdeeb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-static int	search_up(t_node *head, int data)
+int	search_up(t_node *head, int data)
 {
 	t_node	*current;
 	int		up_steps;
@@ -31,7 +31,7 @@ static int	search_up(t_node *head, int data)
 	return (NOT_FOUND);
 }
 
-static int	search_down(t_node *head, int data)
+int	search_down(t_node *head, int data)
 {
 	t_node	*current;
 	int		index;
@@ -58,15 +58,15 @@ static void	calc_cost_single(t_node *head, t_node *current)
 {
 	if (!head || !current)
 		return ;
-    if (!current->cost)
-	    current->cost = malloc(sizeof(t_cost));
+	if (!current->cost)
+		current->cost = malloc(sizeof(t_cost));
 	current->cost->up = search_up(head, current->data);
 	current->cost->down = search_down(head, current->data);
 }
 
 void	calc_cost(t_node *head)
 {
-	t_node  *current;
+	t_node	*current;
 
 	if (!head)
 		return ;
