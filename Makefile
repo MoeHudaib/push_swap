@@ -4,12 +4,16 @@ NAME   = push_swap
 
 SRCS = ./DataStructure/stack.c \
        ./DataStructure/stack_utils.c \
+       ./DataStructure/helpers.c \
+       ./DataStructure/input_validation.c \
+       ./sorting/initial_sort.c \
+       ./sorting/calc_cost.c \
        main.c
 
 LIBS = ./DataStructure/libft/libft.a \
        ./DataStructure/ft_printf/libftprintf.a
 
-INC = -I./DataStructure/libft -I./DataStructure/ft_printf -I./DataStructure
+INC = -I./DataStructure
 
 all: $(NAME)
 

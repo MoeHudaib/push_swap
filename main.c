@@ -3,62 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 23:12:56 by mohammad          #+#    #+#             */
-/*   Updated: 2025/09/20 23:12:57 by mohammad         ###   ########.fr       */
+/*   Updated: 2025/10/02 13:43:58 by mhdeeb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
-#include "libft.h"
 
-static int	check(char *str)
+int	main(int ac, char **av)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	if (ac == 1)
+		return (1);
+	t_node	*a_head;
+	t_node	*b_head;
+	int	i = 1;
+	if (!valid(av[i]) || is_dup(av))
 	{
-		if (str[i] <= '0' || str[i] >= '9')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-static int	loop_through(char **args, int argc)
-{
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (!check(args[i]) || ft_atoi(args[i]) == -1)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	main(int argc, char **argv)
-{
-	int	i;
-	t_node	*head;
-
-	if (argc == 1 || !loop_through(argv, argc))
-	{
-		ft_printf("Invalid Usage.\n, %d", ft_atoi(argv[1]));
+		ft_printf("Invalid Input.");
 		return (1);
 	}
-	i = 1;
-	head = create_node(ft_atoi(argv[i++]));
-	print_list(head);
-	while (i < argc)
+	a_head = create_node(ft_atoi(av[i++]));
+	b_head = NULL;
+	while (av[i])
 	{
-		push(&head, ft_atoi(argv[i]));
-		print_list(head);
-		i++;
+		if (!valid(av[i]))
+		{
+			ft_printf("Invalid Input.");
+			delete_list(&a_head);
+			return (1);
+		}
+		add_back(&a_head, create_node(ft_atoi(av[i++])));
 	}
-	delete_list(&head);
+	s(&a_head, "sa");
+	r(&a_head, "ra");
+	sort_indices(&a_head);
+	calc_cost(a_head);
+	print_list(a_head);
+	p(&a_head, &b_head, "pb");
+	r(&b_head, "rb");
+	calc_cost(b_head);
+	calc_cost(a_head);
+	print_list(a_head);
+	print_list(b_head);
+	delete_list(&a_head);
+	delete_list(&b_head);	
 }

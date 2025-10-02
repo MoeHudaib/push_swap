@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:52:57 by mohammad          #+#    #+#             */
-/*   Updated: 2025/09/20 22:53:53 by mohammad         ###   ########.fr       */
+/*   Updated: 2025/10/02 13:31:04 by mhdeeb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ t_node	*create_node(int data)
 	new_node = malloc(sizeof(t_node));
 	new_node->data = data;
 	new_node->next = NULL;
-	new_node->index = 0;
+	new_node->index = -1;
+	new_node->cost = NULL;
 	return (new_node);
 }
 
-t_node	*push(t_node **head, int data)
+t_node	*push_new(t_node **head, int data)
 {
 	t_node	*new_node;
 
@@ -75,8 +76,11 @@ void	delete_list(t_node **head)
 	{
 		tmp = current;
 		current = current->next;
+		if (tmp->cost)
+			free(tmp->cost);
+		tmp->cost = NULL;
 		free(tmp);
+		tmp = NULL;
 	}
-	*head = NULL;
 	ft_printf("List Cleared Successfully.\n");
 }
