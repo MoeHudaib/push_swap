@@ -8,6 +8,9 @@ SRCS = ./DataStructure/stack.c \
        ./DataStructure/input_validation.c \
        ./sorting/initial_sort.c \
        ./sorting/calc_cost.c \
+       ./sorting/sorting_algo_hard_coded.c \
+       ./sorting/sorting_algo_hard_utils.c \
+       ./sorting/push_swap.c \
        main.c
 
 LIBS = ./DataStructure/libft/libft.a \

@@ -6,7 +6,7 @@
 /*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:03:26 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/10/02 12:42:59 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/02 17:14:57 by mhdeeb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ void	print_list(t_node *head)
 	current = head;
 	while (current)
 	{
-		ft_printf("Data: %d Index: %d UP cost: %d Down cost %d", current->data, current->index, current->cost->up, current->cost->down);
+		ft_printf("%d", current->data, current->index);
+		// if (current->cost)
+		// 	ft_printf("UP cost: %d Down cost %d",
+				//current->cost->up, current->cost->down);
 		if (current->next)
 			ft_printf(" -> ");
 		current = current->next;

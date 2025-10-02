@@ -6,7 +6,7 @@
 /*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 12:49:59 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/10/02 15:20:41 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/02 16:07:04 by mhdeeb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	search_up(t_node *head, int data)
 			return (up_steps);
 		current = current->next;
 	}
-	return (NOT_FOUND);
+	return (0);
 }
 
 int	search_down(t_node *head, int data)

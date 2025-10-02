@@ -6,7 +6,7 @@
 /*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:52:57 by mohammad          #+#    #+#             */
-/*   Updated: 2025/10/02 13:31:04 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/02 16:09:52 by mhdeeb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,4 @@ void	delete_list(t_node **head)
 		free(tmp);
 		tmp = NULL;
 	}
-	ft_printf("List Cleared Successfully.\n");
 }

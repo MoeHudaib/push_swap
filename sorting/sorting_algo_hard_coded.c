@@ -6,7 +6,7 @@
 /*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:12:36 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/10/02 15:02:37 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/02 17:03:57 by mhdeeb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,14 @@ int	is_sorted(t_node *a)
 	return (1);
 }
 
-void	push_swap(t_node **a)
+void	push_swap(t_node **a, t_node **b)
 {
 	if (!a || !*a)
 		return ;
 	sort_indices(a);
-	if (list_counter(*a) == 3)
+	if (list_counter(*a) == 4)
+		sort_four(a, b);
+	else if (list_counter(*a) == 3)
 		sort_three(a);
 	else if (list_counter(*a) == 2)
 		sort_two(a);

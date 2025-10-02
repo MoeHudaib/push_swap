@@ -1,50 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sorting_algo_hard_utils.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 15:04:52 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/10/02 17:09:47 by mhdeeb           ###   ########.fr       */
+/*   Created: 2025/10/02 16:49:07 by mhdeeb            #+#    #+#             */
+/*   Updated: 2025/10/02 17:18:54 by mhdeeb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-t_node	*search_index(t_node *head, int index)
-{
-	t_node	*current;
-
-	current = head;
-	while (current)
-	{
-		if (current->index == index)
-			return (current);
-        current = current->next;
-	}
-    return (NULL);
-}
-
-int	decide_which(t_node *node)
-{
-	if (node->cost->up < node->cost->down)
-		return (R);
-	else
-		return (RR);
-}
-
-void	sort(t_node **a, t_node **b)
+void	sort_four(t_node **a, t_node **b)
 {
 	int		len;
-    //t_node	*node;
+	t_node	*node;
 
-	(void)b;
+	if (is_sorted(*a))
+		return ;
 	len = list_counter(*a);
 	sort_indices(a);
 	calc_cost(*a);
+	node = search_index(*a, 3);
+    len = -1;
+	if (decide_which(node) == R)
+	{
+		while (++len < node->cost->up)
+			r(a, "ra");
+	}
+	else
+	{
+		while (++len < node->cost->down)
+			rr(a, "rr");
+	}
+    //p(a, b, "pb");
+    print_list(*a);
+    print_list(*b);
+    //sort_three(a);
+    //p(a, b, "pa");
+    //r(a, "ra");
+    print_list(*a);
 
 }
-
-// 5 4 6 8 9
-// 0 1 2

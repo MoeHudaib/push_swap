@@ -6,7 +6,7 @@
 /*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:54:16 by mohammad          #+#    #+#             */
-/*   Updated: 2025/10/02 13:47:29 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/02 17:12:26 by mhdeeb           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-typedef enum e_error
+typedef enum e_which
 {
-	NOT_FOUND = 404,
-	INVALID_NUMBER
-}	t_error;
+	R = 1000,
+	RR
+}	t_which;
 
 /*		list Methods	*/
 t_node	*create_node(int data);
@@ -49,6 +49,7 @@ t_node	*pop_last(t_node **head);
 void	s(t_node **head, char *msg);
 void	p(t_node **a_head, t_node **b_head, char *msg);
 void	r(t_node **head, char *msg);
+void	rr(t_node **head, char *msg);
 
 /*		helper Methods	*/
 void	print_list(t_node *head);
@@ -65,5 +66,14 @@ int		valid(char *str);
 /*		Sorting Algorithm	*/
 void	sort_indices(t_node **head);
 void	calc_cost(t_node *head);
+int		search_up(t_node *head, int data);
+int		search_down(t_node *head, int data);
+t_node	*search_index(t_node *head, int index);
+int		is_sorted(t_node *a);
+void	push_swap(t_node **a, t_node **b);
+int		decide_which(t_node *node);
+void	sort_four(t_node **a, t_node **b);
+void	sort_three(t_node **a);
+void	sort_two(t_node **a);
 
 #endif
