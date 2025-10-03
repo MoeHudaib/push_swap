@@ -6,7 +6,7 @@
 /*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 23:34:40 by mohammad          #+#    #+#             */
-/*   Updated: 2025/10/04 01:21:14 by mohammad         ###   ########.fr       */
+/*   Updated: 2025/10/04 02:59:22 by mohammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,4 @@ void	hudaib(t_node **a, t_node **b)
 	}
 	reinsert_b_to_a(a, b);
 	free_split(spl);
-	print_list(*a);
 }
