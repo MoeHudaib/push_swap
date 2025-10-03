@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:52:57 by mohammad          #+#    #+#             */
-/*   Updated: 2025/10/02 16:09:52 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/04 01:34:51 by mohammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_node	*create_node(int data)
 	new_node->data = data;
 	new_node->next = NULL;
 	new_node->index = -1;
-	new_node->cost = NULL;
 	return (new_node);
 }
 
@@ -76,9 +75,6 @@ void	delete_list(t_node **head)
 	{
 		tmp = current;
 		current = current->next;
-		if (tmp->cost)
-			free(tmp->cost);
-		tmp->cost = NULL;
 		free(tmp);
 		tmp = NULL;
 	}

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initial_sort.c                                     :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 10:56:51 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/10/02 12:54:33 by mhdeeb           ###   ########.fr       */
+/*   Created: 2025/10/03 23:36:53 by mohammad          #+#    #+#             */
+/*   Updated: 2025/10/03 23:37:09 by mohammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "algorithm.h"
 
 static t_node	*find_min_unindexed(t_node *head)
 {

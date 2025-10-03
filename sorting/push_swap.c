@@ -3,48 +3,79 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 15:04:52 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/10/02 17:09:47 by mhdeeb           ###   ########.fr       */
+/*   Created: 2025/10/03 23:35:13 by mohammad          #+#    #+#             */
+/*   Updated: 2025/10/03 23:35:24 by mohammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "algorithm.h"
 
-t_node	*search_index(t_node *head, int index)
+void	sort_three(t_node **a)
+{
+	if (is_sorted(*a))
+		return ;
+	if ((*a)->data > (*a)->next->data
+		&& (*a)->data < (*a)->next->next->data)
+		s(a, "sa");
+	else if ((*a)->data > (*a)->next->data
+		&& (*a)->next->data > (*a)->next->next->data)
+	{
+		s(a, "sa");
+		rr(a, "rra");
+	}
+	else if ((*a)->data > (*a)->next->data
+		&& (*a)->data > (*a)->next->next->data)
+		r(a, "ra");
+	else if ((*a)->data < (*a)->next->data
+		&& (*a)->data > (*a)->next->next->data)
+		rr(a, "rra");
+	else if ((*a)->data < (*a)->next->data
+		&& (*a)->next->data > (*a)->next->next->data)
+	{
+		s(a, "sa");
+		r(a, "ra");
+	}
+}
+
+void	sort_two(t_node **a)
+{
+	if (is_sorted(*a))
+		return ;
+	if ((*a)->data > (*a)->next->data)
+		s(a, "sa");
+}
+
+int	is_sorted(t_node *a)
 {
 	t_node	*current;
 
-	current = head;
-	while (current)
+	if (!a || !a->next)
+		return (1);
+	current = a;
+	while (current->next)
 	{
-		if (current->index == index)
-			return (current);
-        current = current->next;
+		if (current->index > current->next->index)
+			return (0);
+		current = current->next;
 	}
-    return (NULL);
+	return (1);
 }
 
-int	decide_which(t_node *node)
+void	push_swap(t_node **a, t_node **b)
 {
-	if (node->cost->up < node->cost->down)
-		return (R);
-	else
-		return (RR);
-}
-
-void	sort(t_node **a, t_node **b)
-{
-	int		len;
-    //t_node	*node;
-
-	(void)b;
-	len = list_counter(*a);
+	if (!a || !*a)
+		return ;
 	sort_indices(a);
-	calc_cost(*a);
-
+	if (list_counter(*a) == 5)
+		sort_five(a, b);
+	else if (list_counter(*a) == 4)
+		sort_four(a, b);
+	else if (list_counter(*a) == 3)
+		sort_three(a);
+	else if (list_counter(*a) == 2)
+		sort_two(a);
+	else
+		hudaib(a, b);
 }
-
-// 5 4 6 8 9
-// 0 1 2

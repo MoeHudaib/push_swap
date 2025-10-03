@@ -3,27 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/20 23:12:56 by mohammad          #+#    #+#             */
-/*   Updated: 2025/10/02 17:04:51 by mhdeeb           ###   ########.fr       */
+/*   Created: 2025/10/03 23:45:55 by mohammad          #+#    #+#             */
+/*   Updated: 2025/10/03 23:54:22 by mohammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "sorting/algorithm.h"
 
 int	main(int ac, char **av)
 {
+	int		i;
+	t_node	*b_head;
+	t_node	*a_head;
+
 	if (ac == 1)
 		return (1);
-	t_node	*a_head;
-	t_node	*b_head;
-	int	i = 1;
+	i = 1;
 	if (!valid(av[i]) || is_dup(av))
-	{
-		ft_printf("Invalid Input.");
-		return (1);
-	}
+		return (ft_printf("Error"));
 	a_head = create_node(ft_atoi(av[i++]));
 	b_head = NULL;
 	while (av[i])
@@ -37,21 +36,7 @@ int	main(int ac, char **av)
 		add_back(&a_head, create_node(ft_atoi(av[i++])));
 	}
 	push_swap(&a_head, &b_head);
-	//print_list(a_head);
 	delete_list(&a_head);
 	if (b_head)
 		delete_list(&b_head);
-	// s(&a_head, "sa");
-	// r(&a_head, "ra");
-	// sort_indices(&a_head);
-	// calc_cost(a_head);
-	// print_list(a_head);
-	// p(&a_head, &b_head, "pb");
-	// r(&b_head, "rb");
-	// calc_cost(b_head);
-	// calc_cost(a_head);
-	// print_list(a_head);
-	// print_list(b_head);
-	// delete_list(&a_head);
-	// delete_list(&b_head);	
 }

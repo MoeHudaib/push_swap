@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:03:26 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/10/02 17:14:57 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/04 00:01:19 by mohammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,6 @@ void	print_list(t_node *head)
 	while (current)
 	{
 		ft_printf("%d", current->data, current->index);
-		// if (current->cost)
-		// 	ft_printf("UP cost: %d Down cost %d",
-				//current->cost->up, current->cost->down);
 		if (current->next)
 			ft_printf(" -> ");
 		current = current->next;

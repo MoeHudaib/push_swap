@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   input_validation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 10:11:48 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/10/02 10:13:36 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/03 23:28:52 by mohammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "validation.h"
 
 int	is_digit(char *str)
 {
@@ -21,6 +21,8 @@ int	is_digit(char *str)
 	i = 0;
 	if (str[0] == '-' || str[0] == '+')
 		i++;
+	if (!str[i])
+		return (0);
 	while (str[i])
 	{
 		if (ft_isdigit(str[i]))
@@ -37,10 +39,16 @@ int	is_dup(char **av)
 {
 	int	i;
 	int	j;
+	int	zero;
 
 	i = 1;
+	zero = 0;
 	while (av[i])
 	{
+		if (ft_strcmp(av[i], "0") == 0
+			|| ft_strcmp(av[i], "+0") == 0
+			|| ft_strcmp(av[i], "-0") == 0)
+			zero++;
 		j = i + 1;
 		while (av[j])
 		{
@@ -50,6 +58,8 @@ int	is_dup(char **av)
 		}
 		i++;
 	}
+	if (zero > 1)
+		return (1);
 	return (0);
 }
 

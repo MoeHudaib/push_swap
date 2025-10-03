@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 13:14:48 by mhdeeb            #+#    #+#             */
-/*   Updated: 2025/09/21 18:19:14 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/03 00:26:57 by mohammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ int		ft_isprint(int c);
 /* Character Case */
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+
+/*	Math	*/
+double	ft_sqrt(double x);
 
 /* String and Memory Functions */
 size_t	ft_strlen(const char *str);

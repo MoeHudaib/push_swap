@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhdeeb <mhdeeb@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mohammad <mohammad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 22:52:52 by mohammad          #+#    #+#             */
-/*   Updated: 2025/10/02 17:01:40 by mhdeeb           ###   ########.fr       */
+/*   Updated: 2025/10/04 01:34:35 by mohammad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ t_node	*pop_last(t_node **head)
 
 void	s(t_node **head, char *msg)
 {
-	t_node	*second;
 	t_node	*first;
+	t_node	*second;
 
-	if (!head || !*head || list_counter(*head) == 1)
+	if (!head || !*head || !(*head)->next)
 		return ;
 	first = pop(head);
 	second = pop(head);
@@ -51,36 +51,23 @@ void	s(t_node **head, char *msg)
 		ft_printf("%s\n", msg);
 }
 
-void	p(t_node **a_head, t_node **b_head, char *msg)
+void	p(t_node **to, t_node **from, char *msg)
 {
 	t_node	*node;
 
-	if (!a_head || !*a_head || !msg)
+	if (!to || !from || !*from)
 		return ;
-	if (ft_strcmp(msg, "pa") == 0)
-	{
-		node = pop(b_head);
-		*a_head = push(a_head, node);
+	node = pop(from);
+	*to = push(to, node);
+	if (msg)
 		ft_printf("%s\n", msg);
-	}
-	else if (ft_strcmp(msg, "pb") == 0)
-	{
-		node = pop(a_head);
-		if (!b_head || !*b_head)
-			*b_head = node;
-		else
-			*b_head = push(b_head, node);
-		ft_printf("%s\n", msg);
-	}
-	else
-		ft_printf("Invalid call: %s", msg);
 }
 
 void	r(t_node **head, char *msg)
 {
 	t_node	*first;
 
-	if (!head || !*head || list_counter(*head) == 1)
+	if (!head || !*head || !(*head)->next)
 		return ;
 	first = pop(head);
 	add_back(head, first);
@@ -90,12 +77,12 @@ void	r(t_node **head, char *msg)
 
 void	rr(t_node **head, char *msg)
 {
-	t_node	*node;
+	t_node	*last;
 
-	if (!head || !*head || list_counter(*head) == 1)
+	if (!head || !*head || !(*head)->next)
 		return ;
-	node = pop_last(head);
-	*head = push(head, node);
+	last = pop_last(head);
+	*head = push(head, last);
 	if (msg)
 		ft_printf("%s\n", msg);
 }
